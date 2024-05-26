@@ -10,7 +10,7 @@ userRouter.get("/", (req, res) => {
   );
 });
 
-userRouter.post("/register", registerUser);
-userRouter.post("/login", loginUser);
+userRouter.post("/api/v1/register", registerUser);
+userRouter.post("/api/v1/login", loginUser);
 
 module.exports = userRouter;
