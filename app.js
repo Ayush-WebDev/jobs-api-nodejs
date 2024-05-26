@@ -25,6 +25,7 @@ app.use(xss());
 app.set("trust-proxy", 1);
 app.use(rateLimiter({ windowMs: 15 * 1000 * 60, max: 100 }));
 app.use(morgon("tiny"));
+
 app.use("/api/v1", authMiddleware, mainRouter);
 app.use("/", userRouter);
 app.use(notFound);
