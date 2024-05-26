@@ -6,7 +6,7 @@ const { registerUser, loginUser } = require("../controllers/user-controller");
 
 userRouter.get("/", (req, res) => {
   res.send(
-    "<h1>Jobs Api documentation</h1><br><a href='/api/v1/jobs'>Documentation</a>"
+    "<h1>Jobs Api documentation</h1><br><a href='/api-docs'>Documentation</a>"
   );
 });
 
