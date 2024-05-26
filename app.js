@@ -13,6 +13,9 @@ const helmet = require("helmet");
 const cors = require("cors");
 const { xss } = require("express-xss-sanitizer");
 const rateLimiter = require("express-rate-limit");
+const swaggerUI = require("swagger-ui-express");
+const YAML = require("yamljs");
+const swaggerDocument = YAML.load("swagger-ui.yaml");
 const port = process.env.PORT || 3000;
 
 /// Important security packages : 1. Helmet, 2. Xss-clean 3. CORS 4. Express rate limit
@@ -23,6 +26,9 @@ app.use(helmet());
 app.use(cors());
 app.use(xss());
 app.set("trust-proxy", 1);
+
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+
 app.use(rateLimiter({ windowMs: 15 * 1000 * 60, max: 100 }));
 app.use(morgon("tiny"));
 

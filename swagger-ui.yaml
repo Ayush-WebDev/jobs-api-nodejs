@@ -1,0 +1,269 @@
+openapi: 3.0.0
+info:
+  title: Jobs api
+  contact: {}
+  version: "1.0"
+servers:
+  - url: https://jobs-api-nodejs-wqn6.onrender.com/api/v1
+    variables: {}
+  - url: https://jobs-api-nodejs-wqn6.onrender.com/api/v1
+    variables: {}
+paths:
+  /register:
+    post:
+      tags:
+        - Auth
+      summary: Register user
+      operationId: Registeruser
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/RegisteruserRequest"
+                - example:
+                    password: 55588fsdf
+                    email: sdfsdfs@test.com
+            example:
+              password: 55588fsdf
+              email: sdfsdfs@test.com
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security: []
+      servers:
+        - url: https://jobs-api-nodejs-wqn6.onrender.com/api/v1
+          variables: {}
+  /login:
+    post:
+      tags:
+        - Auth
+      summary: Login user
+      operationId: Loginuser
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/LoginuserRequest"
+                - example:
+                    email: john@test.com
+                    password: 55588fsdf
+            example:
+              email: john@test.com
+              password: 55588fsdf
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security: []
+      servers:
+        - url: https://jobs-api-nodejs-wqn6.onrender.com/api/v1
+          variables: {}
+  /jobs:
+    get:
+      tags:
+        - Jobs
+      summary: Get all jobs
+      operationId: Getalljobs
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+      servers:
+        - url: https://jobs-api-nodejs-wqn6.onrender.com/api/v1
+          variables: {}
+  /jobs/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: the job id
+    get:
+      tags:
+        - Jobs
+      summary: Single job
+      operationId: Singlejob
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+      servers:
+        - url: https://jobs-api-nodejs-wqn6.onrender.com/api/v1
+          variables: {}
+    patch:
+      tags:
+        - Jobs
+      summary: Update job
+      operationId: Updatejob
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/UpdatejobRequest"
+                - example:
+                    company: JP Morgan
+                    position: Fullstack developer
+                    status: Approved
+            example:
+              company: JP Morgan
+              position: Fullstack developer
+              status: Approved
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+      servers:
+        - url: https://jobs-api-nodejs-wqn6.onrender.com/api/v1
+          variables: {}
+    delete:
+      tags:
+        - Jobs
+      summary: Delete job
+      operationId: Deletejob
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+      servers:
+        - url: https://jobs-api-nodejs-wqn6.onrender.com/api/v1
+          variables: {}
+  /api/v1/jobs:
+    post:
+      tags:
+        - Jobs
+      summary: Create job
+      operationId: Createjob
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/CreatejobRequest"
+                - example:
+                    company: JP Morgan
+                    position: Fullstack developer
+                    status: Pending
+            example:
+              company: JP Morgan
+              position: Fullstack developer
+              status: Pending
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+      servers:
+        - url: https://jobs-api-nodejs-wqn6.onrender.com/api/v1
+          variables: {}
+components:
+  schemas:
+    RegisteruserRequest:
+      title: RegisteruserRequest
+      required:
+        - password
+        - email
+      type: object
+      properties:
+        password:
+          type: string
+        email:
+          type: string
+      example:
+        password: 55588fsdf
+        email: sdfsdfs@test.com
+    LoginuserRequest:
+      title: LoginuserRequest
+      required:
+        - email
+        - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: john@test.com
+        password: 55588fsdf
+    CreatejobRequest:
+      title: CreatejobRequest
+      required:
+        - company
+        - position
+        - status
+      type: object
+      properties:
+        company:
+          type: string
+        position:
+          type: string
+        status:
+          type: string
+      example:
+        company: JP Morgan
+        position: Fullstack developer
+        status: Pending
+    UpdatejobRequest:
+      title: UpdatejobRequest
+      required:
+        - company
+        - position
+        - status
+      type: object
+      properties:
+        company:
+          type: string
+        position:
+          type: string
+        status:
+          type: string
+      example:
+        company: JP Morgan
+        position: Fullstack developer
+        status: Approved
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security: []
+tags:
+  - name: Auth
+    description: ""
+  - name: Jobs
+    description: ""
