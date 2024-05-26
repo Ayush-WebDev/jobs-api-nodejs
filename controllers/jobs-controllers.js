@@ -26,7 +26,7 @@ const createJob = async (req, res, next) => {
     );
 };
 
-const getJob = async (req, res) => {
+const getJob = async (req, res, next) => {
   const job = await Job.findOne({
     createdBy: req.user.userId,
     _id: req.params.id,
