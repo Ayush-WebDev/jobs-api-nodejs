@@ -24,11 +24,13 @@ paths:
               allOf:
                 - $ref: "#/components/schemas/RegisteruserRequest"
                 - example:
+                    name: John
+                    email: john@test.com
                     password: 55588fsdf
-                    email: sdfsdfs@test.com
             example:
+              name: John
+              email: john@test.com
               password: 55588fsdf
-              email: sdfsdfs@test.com
         required: true
       responses:
         "200":
