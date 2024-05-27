@@ -118,6 +118,8 @@ paths:
       servers:
         - url: https://jobs-api-nodejs-wqn6.onrender.com/api/v1
           variables: {}
+        - url: https://jobs-api-nodejs-wqn6.onrender.com
+          variables: {}
     patch:
       tags:
         - Jobs
@@ -150,6 +152,8 @@ paths:
       servers:
         - url: https://jobs-api-nodejs-wqn6.onrender.com/api/v1
           variables: {}
+        - url: https://jobs-api-nodejs-wqn6.onrender.com
+          variables: {}
     delete:
       tags:
         - Jobs
@@ -165,6 +169,8 @@ paths:
         - bearer: []
       servers:
         - url: https://jobs-api-nodejs-wqn6.onrender.com/api/v1
+          variables: {}
+        - url: https://jobs-api-nodejs-wqn6.onrender.com
           variables: {}
   /api/v1/jobs:
     post:
@@ -198,6 +204,8 @@ paths:
         - bearer: []
       servers:
         - url: https://jobs-api-nodejs-wqn6.onrender.com/api/v1
+          variables: {}
+        - url: https://jobs-api-nodejs-wqn6.onrender.com
           variables: {}
 components:
   schemas:
