@@ -4,7 +4,7 @@ info:
   contact: {}
   version: "1.0"
 servers:
-  - url: https://jobs-api-nodejs-wqn6.onrender.com/
+  - url: https://jobs-api-nodejs-wqn6.onrender.com
     variables: {}
   - url: https://jobs-api-nodejs-wqn6.onrender.com/api/v1
     variables: {}
@@ -41,6 +41,8 @@ paths:
       servers:
         - url: https://jobs-api-nodejs-wqn6.onrender.com/api/v1
           variables: {}
+        - url: https://jobs-api-nodejs-wqn6.onrender.com
+          variables: {}
   /login:
     post:
       tags:
@@ -71,6 +73,8 @@ paths:
       servers:
         - url: https://jobs-api-nodejs-wqn6.onrender.com/api/v1
           variables: {}
+        - url: https://jobs-api-nodejs-wqn6.onrender.com
+          variables: {}
   /jobs:
     get:
       tags:
@@ -87,6 +91,8 @@ paths:
         - bearer: []
       servers:
         - url: https://jobs-api-nodejs-wqn6.onrender.com/api/v1
+          variables: {}
+        - url: https://jobs-api-nodejs-wqn6.onrender.com
           variables: {}
   /jobs/{id}:
     parameters:
